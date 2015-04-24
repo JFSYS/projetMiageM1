@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- constant name="struts.devMode" value="true" /-->
+
+	<package name="default" extends="struts-default">
+		<!-- index -->
+		<action name="index" class="action.IndexA">
+			<result name="success">/views/index.jsp</result>
+		</action>
+		
+		<!-- connexion/deconnexion -->
+    	<action name="connexion" class="action.ConnexionA">
+			<result name="success">/views/index.jsp</result>
+			<result name="input">/views/index.jsp</result> 
+			<result name="error">/views/connexionEr.jsp</result> 
+		</action>
+		<action name="deconnexion" class="action.DeconnexionA">
+			<result name="success">/views/index.jsp</result> 
+		</action>
+		
+		<!-- inscription -->
+		<action name="inscription" class="action.IndexA"> 
+      		<result name="success">/views/inscription.jsp</result> 
+    	</action> 
+    	<action name="inscriptionFormP" class="action.InscriptionPA"> 
+      		<result name="success">/views/inscriptionPartSuccess.jsp</result> 
+      		<result name="input">/views/inscription.jsp</result> 
+    	</action>
+    	<action name="inscriptionFormS" class="action.InscriptionSA"> 
+      		<result name="success">/views/inscriptionSyndSuccess.jsp</result> 
+      		<result name="input">/views/inscription.jsp</result>
+    	</action>
+    	
+    	<!-- calendrier -->
+    	<action name="calendrier" class="action.calendrier.CalendrierA">
+			<result name="success">/views/calendrier.jsp</result>
+		</action>
+		<action name="calendrierFormAj" class="action.calendrier.CalendrierAj">
+			<result name="success">/views/calendrier.jsp</result>
+			<result name="input">/views/calendrierEventError.jsp</result>
+		</action>
+		<action name="calendrierFormSup" class="action.calendrier.CalendrierSup">
+			<result name="success">/views/calendrier.jsp</result>
+			<result name="input">/views/calendrierEventError.jsp</result>
+		</action>
+		
+		<!-- Admin page -->
+		<action name="administration" class="action.AdminA">
+			<result name="success">/views/admin.jsp</result>
+			<result name="error">/views/adminEr.jsp</result>
+		</action>
+		<action name="ajouterAttU" class="action.AdminA" method="ajouterAttU">
+			<result name="success">/views/admin.jsp</result>
+		</action>
+		<action name="supprU" class="action.AdminA" method="supprU">
+			<result name="success">/views/admin.jsp</result>
+		</action>
+		
+		
+		<!-- Demandes Travaux -->
+		
+		<action name="demandeTravaux" class="action.demande.DTravauxA">
+			<result name="success">/views/demandeTravaux.jsp</result>
+		</action>
+		<action name="travauxFormAj" class="action.demande.DTravauxAj">
+			<result name="success">/views/demandeTravaux.jsp</result>
+			<result name="input">/views/demandeTravauxEr.jsp</result>
+		</action>
+		<action name="supprTrav" class="action.demande.DTravauxA" method="supprT">
+			<result name="success">/views/demandeTravaux.jsp</result>
+		</action>
+		<action name="plusTrav" class="action.demande.DTravauxA" method="plusT">
+			<result name="success">/views/demandeTravaux.jsp</result>
+			<result name="error">/views/demandeTravauxEr.jsp</result>
+		</action>
+		<action name="moinsTrav" class="action.demande.DTravauxA" method="moinsT">
+			<result name="success">/views/demandeTravaux.jsp</result>
+			<result name="error">/views/demandeTravauxEr.jsp</result>
+		</action>
+		<action name="modifTrav" class="action.demande.DTravauxA" method="modifT">
+			<result name="success">/views/modifTravaux.jsp</result>
+			<result name="input">/views/modifTravaux.jsp</result>
+		</action>
+		<action name="travauxFormModif" class="action.demande.DTravauxModif">
+			<result name="success">/views/demandeTravaux.jsp</result>
+			<result name="input">/views/demandeTravauxEr.jsp</result>
+		</action>
+		<action name="consulterTrav" class="action.demande.DTravauxA" method="consulterT">
+			<result name="success">/views/consultTrav.jsp</result>
+		</action>
+		<action name="accepterPTrav" class="action.demande.DTravauxA" method="accepterPT">
+			<result name="success">/views/demandeTravaux.jsp</result>
+			<result name="error">/views/demandeTravauxEr.jsp</result>
+		</action>
+		<action name="accepterGTrav" class="action.demande.DTravauxA" method="accepterGT">
+			<result name="success">/views/demandeTravaux.jsp</result>
+			<result name="error">/views/demandeTravauxEr.jsp</result>
+		</action>
+		<action name="refuserTrav" class="action.demande.DTravauxA" method="refuserT">
+			<result name="success">/views/demandeTravaux.jsp</result>
+		</action>
+		<action name="consulterPTrav" class="action.demande.DTravauxA" method="consulterPT">
+			<result name="success">/views/consultPTrav.jsp</result>
+		</action>
+		<action name="consulterGTrav" class="action.demande.DTravauxA" method="consulterGT">
+			<result name="success">/views/consultGTrav.jsp</result>
+		</action>
+		<action name="devisFormAjG" class="action.demande.DevisAj">
+			<result name="success">/views/consultGTrav.jsp</result>
+			<result name="input">/views/demandeTravauxEr.jsp</result>
+		</action>
+		<action name="devisFormAjP" class="action.demande.DevisAj" method="ajoutPT">
+			<result name="success">/views/consultPTrav.jsp</result>
+			<result name="input">/views/demandeTravauxEr.jsp</result>
+		</action>
+		<action name="supprPD" class="action.demande.DTravauxA" method="supprPTD">
+			<result name="success">/views/consultPTrav.jsp</result>
+		</action>
+		<action name="supprGD" class="action.demande.DTravauxA" method="supprGTD">
+			<result name="success">/views/consultGTrav.jsp</result>
+		</action>
+		<action name="accepterD" class="action.demande.DTravauxA" method="accepterD">
+			<result name="success">/views/consultGTrav.jsp</result>
+		</action>
+		<action name="supprPTrav" class="action.demande.DTravauxA" method="supprimerPT">
+			<result name="success">/views/demandeTravaux.jsp</result>
+		</action>
+		<action name="supprGTrav" class="action.demande.DTravauxA" method="supprimerGT">
+			<result name="success">/views/demandeTravaux.jsp</result>
+		</action>
+		
+		<!-- Demandes Reclamations -->
+		
+		<action name="demandeReclamation" class="action.demande.ReclamationA">
+			<result name="success">/views/demandeReclamation.jsp</result>
+		</action>
+		<action name="reclamationFormAj" class="action.demande.ReclamationAj">
+			<result name="success">/views/demandeReclamation.jsp</result>
+			<result name="input">/views/demandeReclamationEr.jsp</result>
+		</action>
+		<action name="supprRec" class="action.demande.ReclamationA" method="supprR">
+			<result name="success">/views/demandeReclamation.jsp</result>
+		</action>
+		<action name="plusRec" class="action.demande.ReclamationA" method="plusR">
+			<result name="success">/views/demandeReclamation.jsp</result>
+			<result name="error">/views/demandeReclamationEr.jsp</result>
+		</action>
+		<action name="moinsRec" class="action.demande.ReclamationA" method="moinsR">
+			<result name="success">/views/demandeReclamation.jsp</result>
+			<result name="error">/views/demandeReclamationEr.jsp</result>
+		</action>
+		<action name="modifRec" class="action.demande.ReclamationA" method="modifR">
+			<result name="success">/views/modifReclamation.jsp</result>
+			<result name="input">/views/modifReclamation.jsp</result>
+		</action>
+		<action name="reclamationFormModif" class="action.demande.ReclamationModif">
+			<result name="success">/views/demandeReclamation.jsp</result>
+			<result name="input">/views/demandeReclamationEr.jsp</result>
+		</action>
+		<action name="consulterRec" class="action.demande.ReclamationA" method="consulterR">
+			<result name="success">/views/consultRec.jsp</result>
+		</action>
+		<action name="accepterRec" class="action.demande.ReclamationA" method="accepterR">
+			<result name="success">/views/demandeReclamation.jsp</result>
+		</action>
+		<action name="refuserRec" class="action.demande.ReclamationA" method="refuserR">
+			<result name="success">/views/demandeReclamation.jsp</result>
+		</action>
+		
+		
+		<!-- resolution -->
+		
+		<action name="resolution" class="action.demande.ResolutionA"> 
+      		<result name="success">/views/resolution.jsp</result> 
+    	</action>
+    	<action name="resolutionFormAj" class="action.demande.ResolutionAj">
+			<result name="success">/views/resolution.jsp</result>
+			<result name="input">/views/resolutionEr.jsp</result>
+		</action>
+		<action name="supprRes" class="action.demande.ResolutionA" method="supprR">
+			<result name="success">/views/resolution.jsp</result>
+		</action>
+		<action name="plusRes" class="action.demande.ResolutionA" method="plusR">
+			<result name="success">/views/resolution.jsp</result>
+			<result name="error">/views/resolutionEr.jsp</result>
+		</action>
+		<action name="moinsRes" class="action.demande.ResolutionA" method="moinsR">
+			<result name="success">/views/resolution.jsp</result>
+			<result name="error">/views/resolutionEr.jsp</result>
+		</action>
+		<action name="modifRes" class="action.demande.ResolutionA" method="modifR">
+			<result name="success">/views/modifResolution.jsp</result>
+			<result name="input">/views/modifResolution.jsp</result>
+		</action>
+		<action name="resolutionFormModif" class="action.demande.ResolutionModif">
+			<result name="success">/views/resolution.jsp</result>
+			<result name="input">/views/resolutionEr.jsp</result>
+		</action>
+		<action name="consulterRes" class="action.demande.ResolutionA" method="consulterR">
+			<result name="success">/views/consultRec.jsp</result>
+		</action> 
+		<action name="accepterRes" class="action.demande.ResolutionA" method="accepterR">
+			<result name="success">/views/resolution.jsp</result>
+		</action>
+    	
+    	<!-- compte -->
+    	
+    	<action name="information" class="action.InformationA">
+			<result name="success">/views/information.jsp</result>
+		</action>
+		<action name="informationForm" class="action.InformationModif">
+			<result name="success">/views/information.jsp</result>
+			<!-- <result name="input">/views/demandeTravauxEr.jsp</result> -->
+		</action>
+		
+		<!-- facture -->
+		<action name="facture" class="action.FactureA"> 
+      		<result name="success">/views/factures.jsp</result> 
+    	</action>
+    	<action name="FactureFormAj" class="action.FactureAj">
+			<result name="success">/views/factures.jsp</result>
+			<result name="input">/views/factureEr.jsp</result>
+		</action>
+
+		<action name="supprFac" class="action.FactureA" method="supprF">
+			<result name="success">/views/factures.jsp</result>
+		</action>
+		
+		<action name="consulterFac" class="action.FactureA" method="consulterF">
+			<result name="success">/views/consultFac.jsp</result>
+		</action>
+		
+    	
+    	
+	</package>
+</struts>
+
